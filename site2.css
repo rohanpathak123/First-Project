@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    flex-flow: column;
+    background-image: url("payment_background.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+a {
+    background-color: red;
+    padding: 30px;
+    color: white;
+    text-rendering: optimizeSpeed;
+    border-radius: 20%;
+    text-decoration: none;
+    font-family: 'Verdana';
+    font-size: 17px;
+    margin: 20px;
+}
+section {
+    margin-top: 100px;
+}

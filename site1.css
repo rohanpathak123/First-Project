@@ -1,0 +1,43 @@
+body{
+  background: #3b4172;
+  font-family: poppins;
+}
+
+.wrapper{
+  width: 1170px;
+  margin: 2% auto;
+}
+.section-header{
+  text-align: center;
+  margin-bottom: 30px;
+
+}
+.section-header{
+   text-transform: uppercase;
+   margin: 0;
+   color: #fff;
+   font-size: 45px;
+   letter-spacing: 5px;
+}
+.team-member{
+  width: 29%;
+  height: auto;
+  float: left;
+  box-shadow: 5px 5px 15px #000;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 15px;
+  text-align: center;
+  margin: 0 5px;
+  background: #007399;
+}
+.team-member img{
+  width: 100%;
+}
+.team-member h3{
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 25px;
+  color: #fff;
+}
