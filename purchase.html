@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="/Assets/style_cart.css">
+    </head>
+    <body>
+      <header>
+        <div class="main">
+          <div class="logo">
+            <img src="/Assets/dbms_logo_cropped.png">
+            </div>
+          <ul>
+            <li><a href="/assets/home">Home</a></li>
+            <li class="active"><a href="#">Cart</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+          </div>
+      </header>
+      <div class="container-items">
+          <div class="container-item">
+            <div>
+                <img src="./Assets/Electronics/Acer-aspire.JPG" style="border: 1px solid black;" class="item_logo" height="200" width="200" class="item_logo"/>
+            </div>
+            <div>
+                <label class="item_name" style = "font-size: 20px;">(Acer-aspire)</label>
+            </div>
+            <div class="pricing">
+              <span style = "text-decoration: line-through;">Original_Price</span>
+              <br>
+              <span class="sales_price">200000</span>
+            </div>
+            <div class="quantity">
+              <span class="purchase_qty"><strong>Qty : </strong><button class="remove">-</button><input type="text" id="qty"/><button class="add">+</button></span>
+            </div>
+            <div>
+              <button class="remove-item">Remove</button>
+            </div>
+          </div>
+        <div class="container-item">
+          <div>
+              <img src="./Assets/Electronics/Acer-aspire.JPG" style="border: 1px solid black;" class="item_logo" height="200" width="200" class="item_logo"/>
+          </div>
+          <div>
+              <label class="item_name" style = "font-size: 20px;">(Acer-aspire)</label>
+          </div>
+          <div class="pricing">
+            <span style = "text-decoration: line-through;">Original_Price</span>
+            <br>
+            <span class="sales_price">200000</span>
+          </div>
+          <div class="quantity">
+            <span class="purchase_qty"><strong>Qty : </strong><button class="remove">-</button><input type="text" id="qty" value="1"/><button class="add">+</button></span>
+          </div>
+          <div>
+            <button class="remove-item">Remove</button>
+          </div>
+          </div>
+          <div>
+            <label class="total_cost">Total Cost : <span id="total-price">0</span></label>
+          </div>
+        </div>
+        </div> 
+        <form>
+          <div class="container-purchase">
+        <br><br>
+        <!---
+        <table>
+          <tr>
+            <th>Product Name</th>
+            <th>Qty</th>
+            <th>Price</th>
+          </tr>
+        <tr>
+          <td>Acer Aspire</td>
+          <td>2</td>
+          <td class="price">2000000</td>
+        </tr> 
+        </table>
+        <br><br>
+        </div> -->
+        <div>  
+          <form> 
+        <h3 style="text-align: center;">Apply Coupons</h3>
+        <input placeholder="Enter coupon code" class="coupon_code"/>
+        <br>
+        <button type="submit" class="coupon_acceptor">Enter</button>
+      </form>
+      </div>
+          </div>
+          <br><br><br>
+        <a href="/assets/payment_options" class="checkout" style="text-align: center; text-decoration: none; color: black;">Proceed to checkout</a>
+      <br><br>
+        <script>
+        var rem_buttons = document.querySelectorAll(".remove");
+        var add_buttons = document.querySelectorAll(".add");
+        var remove_buttons = document.querySelectorAll(".remove-item");
+        var qty = document.querySelectorAll("#qty");
+        for(var i=0;i<qty.length;i++)
+        {        
+          qty[i].value = 1;
+        }
+        for(var i=0;i<rem_buttons.length;i++) {
+            rem_buttons[i].addEventListener("click",remove_one);
+            add_buttons[i].addEventListener("click",add_one);
+            remove_buttons[i].addEventListener("click",remove_item);
+        }
+        function edit_sum() {
+        var sum = 0;
+        var sales_price = document.querySelectorAll(".sales_price");
+        var item_prices = document.querySelectorAll(".price");
+        var total_price = document.getElementById("total-price"); 
+        for(var i=0;i < sales_price.length ; i++)
+        {
+          sum = sum + parseFloat(sales_price[i].innerHTML)*parseFloat(qty[i].value);
+        }
+        total_price.innerHTML = sum;
+      } 
+        edit_sum();
+        function add_one() {
+            var input = this.previousElementSibling;
+            var qty_val = parseFloat(input.value);
+            qty_val = qty_val + 1;
+            input.value = qty_val;
+            edit_sum();
+        }
+        function remove_one() {
+            var input = this.nextElementSibling;
+            var qty_val = parseFloat(input.value);
+            if(qty_val>0) {
+            qty_val = qty_val - 1;
+            input.value = qty_val;
+            }
+            edit_sum();
+        }
+        function remove_item() {
+          this.parentNode.parentNode.className = "hide";
+          var total_price = document.getElementById("total-price");
+          console.log(total_price);
+          var sum = parseFloat(total_price.innerHTML);
+          console.log(sum);
+          var container = this.parentNode.parentNode;
+          var price_container = container.querySelector(".pricing");
+          var qty_container = container.querySelector(".quantity");
+          var price = parseFloat(price_container.querySelector(".sales_price").innerHTML);
+          var qty_val = qty_container.querySelector("#qty").value;
+          sum = sum - price*qty_val;
+          total_price.innerHTML = sum;
+        }
+        
+        </script>
+    </body>
+</html>

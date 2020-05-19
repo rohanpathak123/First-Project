@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page</title>
+        <link rel="stylesheet" href="/Assets/styles.css">
+        <script type="text/javascript">
+            function validate()  {
+            var regx_mob = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+            var regx_mail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var lbl_mob = document.getElementById("msg_mob");
+            var lbl_mail = document.getElementById("msg_mail");
+            var mob  = document.getElementById("mob").value;
+            var mail = document.getElementById("mail").value;
+            lbl_mail.style.visibility = "hidden";
+            lbl_mob.style.visibility = "hidden";
+
+            if(regx_mob.test(mob)===true && regx_mail.test(mail)===true) {
+                return true;
+              }
+              else {
+                if(regx_mob.test(mob)===true && regx_mail.test(mail)===false) {
+                  lbl_mail.style.visibility = "visible";
+                  return false;
+                }
+                else if(regx_mob.test(mob)===false && regx_mail.test(mail)===true) {
+                  lbl_mob.style.visibility = "visible";
+                  return false;
+                }
+                else {
+                  lbl_mob.style.visibility = "visible";
+                  lbl_mail.style.visibility = "visible";
+                  return false;
+                }
+              }
+            }
+        </script>
+        </head>
+    </head>
+      <body>
+        <section id="details">
+            <h3>Enter Details</h3>
+            <form method="POST" onsubmit="return validate()" action="/assets/signup/create_credentials">
+            <input name="name" placeholder="Full Name" type="text" /><br>
+            <input name="address" placeholder="Address" type="text"/><br>
+            <input name="email" placeholder="E-Mail" id="mail" type="text"/><label id="msg_mail">*Invalid E-Mail</label><br>
+            <input name="mob" placeholder="Mobile No." id="mob" type="text"/><label id="msg_mob">*Invalid Mobile no.</label><br>
+            <br><br>
+            <button type="submit">Submit</button>
+            </form>
+            <br>
+            <span>Already registered ?</span><a href="/assets/signin">Sign in</a>
+        </section>
+    </body>
+</html>

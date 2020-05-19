@@ -74,6 +74,7 @@ section {
                 width: 200px;
                 height: 300px;
                 border: 1px solid black;
+                border-radius: 10%;
             }
             .confirm {
                 font-size: large;
@@ -168,4 +169,15 @@ input:focus {
 
 body {
   background-color: powderblue;
+}
+.cart-btn {
+  padding: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 20%;
+}
+.item_thumbnail:hover {
+  width: 250px;
+  height: 350px;
 }
