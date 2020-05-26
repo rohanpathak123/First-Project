@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <style>
+body {
+    display: flex;
+    flex-flow: column;
+    background-image: url("payment_background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    height: 500px;
+}
+a {
+    background: transparent;
+    padding: 10px;
+    color: black;
+    border-radius: 5%;
+    text-decoration: none;
+    font-family: 'Verdana';
+    font-size: 14px;
+    margin: 10px;
+    transition: 0.6s ease;
+    border: 2px solid green;
+}
+a:hover {
+    background-color: green;
+    color: white;
+}
+
+.admin_option {
+    width: 200px;
+    margin-left: 650px;
+    margin-top: 30px;
+}
+.hide {
+    display: none;
+}
+.card-details-container {
+    text-align: center;
+    flex: 0.4;
+}
+input {
+    background: transparent;
+    border: none;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    margin: 10px;
+}
+input:focus {
+    outline: none;
+}
+.container-payment {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 400px;
+}
+button {
+    background-color: orange;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10%;
+    margin-left: 100px;
+    margin-right: 100px;
+    border: none;
+}
+
+button:focus {
+  outline: none;
+}
+#details {
+    margin-top: -20px;
+    position: relative;
+    left: -20px;
+}
+
+
+    </style>
+    <body>
+        <header>
+            <h1 style="text-align: center; margin-bottom: 20px;">Payment Options</h1>
+        </header>
+        <section>
+            <div class="container-payment">
+            <div class="options-container">
+                <a href="#" id="card_payment">Credit/Debit Card</a><br><br><br>
+                <a href="order_placed.html">Cash On Delivery</a>
+            </div>
+            <div class="card-details-container">
+                <section id="details" class="hide">
+                    <h2 style="text-align: center; margin-left: 110px; border-bottom: 2px solid green; width: fit-content; font-family: 'Lucida Sans';">Enter Details</h3>
+                    <form action="order_placed.html">
+                    <input placeholder="Full Name" /><br>
+                    <input placeholder="Card No." /><br>
+                    <input placeholder="Valid Thru"/><br>
+                    <input type="password" placeholder="CVV"/><br>
+                    <br><br>
+                    <button type="submit">Confirm</button>
+                    </form>
+                </section>
+            </div>
+            </div>
+        </section>
+        <script>
+            var details = document.getElementById("details");
+            var card = document.getElementById("card_payment");
+            card.addEventListener("click",()=>{
+            if(details.className==='hide')
+                details.className="";
+            });
+        </script>
+    </body>
+    
+</html>

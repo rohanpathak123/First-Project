@@ -1,0 +1,12 @@
+.new-checkout-method {
+	float: right;
+	background-color: blue;
+	color: white;
+	padding: 20px;
+	border-radius: 5%;
+}
+
+.new-checkout-method:hover {
+	color: white;
+	text-decoration: none;
+}
